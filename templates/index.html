@@ -5,8 +5,34 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Django hello</h1>
-<p>{{text}}</p>
-<span>{{number}}</span>
+
+{% if object_list %}
+<table border="2px" width="100%">
+
+    <tr>
+        <th>id</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+
+    </tr>
+  {% for obj in  object_list %}
+    <tr>
+        <th>{{obj.id}}</th>
+        <th>{{obj.order_dt}}</th>
+        <th>{{obj.order_name}}</th>
+        <th>{{obj.order_phone}}</th>
+
+    </tr>
+
+{% endfor %}
+</table>
+
+{% else %}
+<h1>Иди нахуй </h1>
+{% endif %}
+
+
+
 </body>
 </html>
